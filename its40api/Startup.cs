@@ -29,6 +29,8 @@ namespace its40api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             string ConnectionString = "http://192.168.101.33:8086";
+            services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionString));
+            services.AddScoped<IDataAccess<ZonePerformance>, ZonePerformanceDataAccess>((cs) => new ZonePerformanceDataAccess(ConnectionString));
             services.AddScoped<IDataAccess<Cart>, CartDataAccess>((cs) => new CartDataAccess(ConnectionString));
             services.AddScoped<IDataAccess<CartPath>, CartPathDataAccess>((cs) => new CartPathDataAccess(ConnectionString));
             services.AddScoped<IDataAccess<Receipt>, ReceiptDataAccess>((cs) => new ReceiptDataAccess(ConnectionString));
