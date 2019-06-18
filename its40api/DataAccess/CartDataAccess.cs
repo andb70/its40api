@@ -51,17 +51,7 @@
         public DateTime TimeStamp { get; set; }
     }
              */
-            return new List<Cart> {
-                new Cart { CartId = 1 , ZoneId =3, TimeStamp =new System.DateTime(2019,6,10,11,23,12)},
-                new Cart { CartId = 1 , ZoneId =4, TimeStamp =new System.DateTime(2019,6,12,16,55,44)},
-                new Cart { CartId = 1 , ZoneId =5, TimeStamp =new System.DateTime(2019,6,17,8,23,12)},
-                new Cart { CartId = 1 , ZoneId =5, TimeStamp =new System.DateTime(2019,6,17,9,23,12)},
-                new Cart { CartId = 5 , ZoneId =14, TimeStamp =new System.DateTime(2019,6,17,10,23,12)},
-                new Cart { CartId = 5 , ZoneId =5, TimeStamp =new System.DateTime(2019,6,17,11,23,12)},
-                new Cart { CartId = 5 , ZoneId =11, TimeStamp =new System.DateTime(2019,6,17,14,23,12)},
-                new Cart { CartId = 6 , ZoneId =9, TimeStamp =new System.DateTime(2019,6,17,15,23,12)},
-                new Cart { CartId = 6 , ZoneId =7, TimeStamp =new System.DateTime(2019,6,17,16,23,12)},
-                new Cart { CartId = 7 , ZoneId =3, TimeStamp =new System.DateTime(2019,6,17,16,23,12)} };
+            return CartUtil.GetCarts();
 
         }
     }

@@ -10,8 +10,8 @@
 
     public class ReceiptDataAccess : IDataAccess<Receipt> 
     {
-        IInfluxDbClientConfiguration a; 
-        InfluxDbClient influxDbClient;
+        //IInfluxDbClientConfiguration a; 
+        //InfluxDbClient influxDbClient;
         public ReceiptDataAccess(string host)
         {
            // influxDbClient = new InfluxDbClient(a);
@@ -57,14 +57,8 @@
         public int ShopAmount { get; set; }
     }
              */
-            return new List<Receipt> {
-                new Receipt { CartId = 1 , ShoppingList = new List<ShoppingList>{
-                    new ShoppingList {ZoneId = 2, ShopAmount= 25.12M, },
-                    new ShoppingList {ZoneId = 4, ShopAmount= 15.12M, },
-                    new ShoppingList {ZoneId = 8, ShopAmount= 28M, },
-                    new ShoppingList {ZoneId = 12, ShopAmount= 2.56M, }
-                }, TotalSpending = 156.12M, TimeStamp =new System.DateTime(2019,6,17,16,23,12)},
-};
+
+            return ReceiptUtil.GetReceips();
 
         }
     }
