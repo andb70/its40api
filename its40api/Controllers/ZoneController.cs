@@ -4,6 +4,7 @@
     using its40api.DataAccess;
     using its40api.Models;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -31,6 +32,27 @@
             //{
             //    return StatusCode(500);
             //}
+        }
+        // GET api/values/5
+        [HttpGet("s")]
+        public ActionResult<string> Json()
+        {
+            var list = _dataAccess.GetList("");
+            var o = new { list };
+            var u = JsonConvert.SerializeObject(o);
+            return u;
+        }
+        [HttpGet("o")]
+        public ActionResult<object> Boo()
+        {
+            var list = _dataAccess.GetList("");
+            var o = new { list };
+            return o;
+        }
+        [HttpOptions]
+        public IActionResult Options()
+        {
+            return Ok();
         }
     }
 }

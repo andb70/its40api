@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using its40api.DataAccess;
 using its40api.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,17 @@ namespace its40api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(option =>
+            {
+                option.AddPolicy("all", builder => {
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+                });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             string ConnectionString = "http://192.168.101.33:8086";
             services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionString));
@@ -55,6 +67,7 @@ namespace its40api
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseCors("all");
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
