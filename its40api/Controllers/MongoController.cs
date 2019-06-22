@@ -8,16 +8,16 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ReceiptController : ControllerBase
+    public class MongoController : ControllerBase
     {
-        IDataAccess<Receipt> _dataAccess;
-        public ReceiptController(IDataAccess<Receipt> dataAccess)
+        IDataAccess<Cart> _dataAccess;
+        public MongoController(IDataAccess<Cart> dataAccess)
         {
             _dataAccess = dataAccess;
         }
-        // GET api/Receipt/id
+        // GET api/Cart/id
         [HttpGet("{cartId}")]
-        public ActionResult<IEnumerable<Receipt>> Get(int cartId)
+        public ActionResult<IEnumerable<Cart>> Get(int cartId)
         {
             
             //try
@@ -40,6 +40,7 @@
             var list = _dataAccess.GetList("");
             var o = new { list };
             var u = JsonConvert.SerializeObject(o);
+
             return Ok(u);
         }
         [HttpGet("o/{cartId}")]

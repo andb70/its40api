@@ -10,8 +10,8 @@
     [ApiController]
     public class ZonePerformanceController : ControllerBase
     {
-        IDataAccess<Cart> _dataAccess;
-        public ZonePerformanceController(IDataAccess<Cart> dataAccess)
+        IDataAccess<ZonePerformance> _dataAccess;
+        public ZonePerformanceController(IDataAccess<ZonePerformance> dataAccess)
         {
             _dataAccess = dataAccess;
         }
@@ -40,14 +40,14 @@
             var list = _dataAccess.GetList("");
             var o = new { list };
             var u = JsonConvert.SerializeObject(o);
-            return u;
+            return Ok(u);
         }
         [HttpGet("o/{cartId}")]
         public ActionResult<object> Boo(int cartId)
         {
             var list = _dataAccess.GetList("");
             var o = new { list };
-            return o;
+            return Ok(o);
         }
         [HttpOptions]
         public IActionResult Options()

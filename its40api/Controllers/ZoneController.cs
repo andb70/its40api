@@ -40,14 +40,14 @@
             var list = _dataAccess.GetList("");
             var o = new { list };
             var u = JsonConvert.SerializeObject(o);
-            return u;
+            return Ok(u);
         }
         [HttpGet("o")]
         public ActionResult<object> Boo()
         {
             var list = _dataAccess.GetList("");
             var o = new { list };
-            return o;
+            return Ok(o);
         }
         [HttpOptions]
         public IActionResult Options()

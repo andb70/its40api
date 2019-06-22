@@ -53,20 +53,33 @@
              */
 
             return new List<Zone>() {
-                new Zone{Name="Ingresso", ZoneId = 1 },
-                new Zone{Name="Giochi", ZoneId = 2 },
-                new Zone{Name="Casalinghi", ZoneId = 3 },
-                new Zone{Name="Piccoli amici", ZoneId = 4 },
-                new Zone{Name="Birre", ZoneId = 5 },
-                new Zone{Name="Vini", ZoneId = 6 },
-                new Zone{Name="Zona promo 2", ZoneId = 7 },
-                new Zone{Name="Zona promo 1", ZoneId = 8 },
-                new Zone{Name="Canco carni", ZoneId = 9 },
-                new Zone{Name="Banco formaggi", ZoneId = 10 },
-                new Zone{Name="Corsia 3", ZoneId = 11 },
-                new Zone{Name="Corsia 2", ZoneId = 12 },
-                new Zone{Name="Corsia 1", ZoneId = 13 },
-                new Zone{Name="Uscita", ZoneId = 14 }
+                    new Zone{Name="BANCO FORMAGGI", ZoneId = 1}
+                    , new Zone{Name="e", ZoneId = 2}
+                    , new Zone{Name="Servizio Formaggi 1", ZoneId = 3}
+                    , new Zone{Name="Alimentari", ZoneId = 4}
+                    , new Zone{Name="e", ZoneId = 5}
+                    , new Zone{Name="Servizio Carni 1", ZoneId = 6}
+                    , new Zone{Name="Prodotti da frigo", ZoneId = 7}
+                    , new Zone{Name="Detersivi", ZoneId = 8}
+                    , new Zone{Name="Bibite", ZoneId = 9}
+                    , new Zone{Name="scaffale 2", ZoneId = 10}
+                    , new Zone{Name="e", ZoneId = 11}
+                    , new Zone{Name="Servizio Formaggi 2", ZoneId = 12}
+                    , new Zone{Name="BANCO CARNI", ZoneId = 13}
+                    , new Zone{Name="Scaffale1", ZoneId = 14}
+                    , new Zone{Name="Prodotti da forno", ZoneId = 15}
+                    , new Zone{Name="Promo", ZoneId = 16}
+                    , new Zone{Name="Servizio carni 2", ZoneId = 17}
+                    , new Zone{Name="Verdure", ZoneId = 18}
+                    , new Zone{Name="e", ZoneId = 19}
+                    , new Zone{Name="Cassa 1", ZoneId = 20}
+                    , new Zone{Name="e", ZoneId = 21}
+                    , new Zone{Name="Cassa 2", ZoneId = 22}
+                    , new Zone{Name="e", ZoneId = 23}
+                    , new Zone{Name="Ingresso 1", ZoneId = 24}
+                    , new Zone{Name="e", ZoneId = 25}
+                    , new Zone{Name="Ingresso 2", ZoneId = 26}
+                    , new Zone{Name="e", ZoneId = 27}
             };
 
         }
