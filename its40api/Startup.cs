@@ -41,16 +41,16 @@ namespace its40api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            string ConnectionStringInflux = "https://192.168.43.246:8088";
+            string ConnectionStringInflux = "https://192.168.137.1:8086";
             string ConnectionStringMongo = "mongodb+srv://itsadmin:_its_40_admin@its40-umlny.mongodb.net/test?retryWrites=true&w=majority";
             services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionStringInflux));
             services.AddScoped<IDataAccess<ZonePerformance>, ZonePerformanceDataAccess>((cs) => new ZonePerformanceDataAccess(ConnectionStringInflux));
-            services.AddScoped<IDataAccess<Cart>, CartDataAccess>((cs) => new CartDataAccess(ConnectionStringInflux));
             services.AddScoped<IDataAccess<CartPath>, CartPathDataAccess>((cs) => new CartPathDataAccess(ConnectionStringInflux));
             services.AddScoped<IDataAccess<Receipt>, ReceiptDataAccess>((cs) => new ReceiptDataAccess(ConnectionStringInflux));
 
 
-            //services.AddScoped<IDataAccess<Cart>, MongoDataAccess>((cs) => new MongoDataAccess(ConnectionStringMongo));
+             //services.AddScoped<IDataAccess<Cart>, CartDataAccess>((cs) => new CartDataAccess(ConnectionStringInflux));
+            services.AddScoped<IDataAccess<Cart>, MongoDataAccess>((cs) => new MongoDataAccess(ConnectionStringMongo));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

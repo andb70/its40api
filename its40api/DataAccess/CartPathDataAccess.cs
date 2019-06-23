@@ -33,16 +33,19 @@
 
                 var serialNumber = "F2EA2B0CDFF";
                 //var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data WHERE \"serialNumber\" = @SerialNumber";
-                var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data";
-
-                var response = influxDbClient.Client.QueryAsync(
-                    queryTemplate: queryTemplate,
-                    parameters: new
-                    {
-                        @cart_id = serialNumber
-                    },
-                    dbName: "qr_codes"
+                var queryTemplate = "SELECT cart_id, zone_id, time FROM cart_data";
+            var response = influxDbClient.Client.QueryAsync(
+                queryTemplate,
+                "qr_codes"
                 ).Result;
+            //var response = influxDbClient.Client.QueryAsync(
+            //    queryTemplate: queryTemplate,
+            //    parameters: ""/*new
+            //    {
+            //        @cart_id = serialNumber
+            //    }*/,
+            //    dbName: "qr_codes"
+            //).Result;
             /*
              *         public int Rank { get; set; }
         public string ZoneSequence { get; set; }
