@@ -3,18 +3,25 @@
     using System.Collections.Generic;
     using Dapper;
     using System.Data.SqlClient;
-    using InfluxData.Net.InfluxDb;
-    using InfluxData.Net.Common.Enums;
-    using InfluxData.Net.Common.Infrastructure;
+
     using its40api.Models;
+    using AdysTech.InfluxDB.Client.Net;
+    using System;
+
+    // https://github.com/AdysTech/InfluxDB.Client.Net
 
     public class CartPathDataAccess : IDataAccess<CartPath> 
     {
         //IInfluxDbClientConfiguration a; 
-        InfluxDbClient influxDbClient;
+        InfluxDBClient influxDbClient;
         public CartPathDataAccess(string host)
-        {            
-            influxDbClient = new InfluxDbClient(host, "", "", InfluxDbVersion.Latest);
+        {
+            //Creating Client
+            InfluxDBClient client = new InfluxDBClient(host, "", "");
+            //Querying all DB names
+            List<string> dbNames = client.GetInfluxDBNamesAsync().Result;
+            //Querying DB structure
+            var s= client.GetInfluxDBStructureAsync(dbNames[1]).Result;
         }
 
         public List<CartPath> GetList(string whereClause, object filters = null)
@@ -31,7 +38,7 @@
             //}
 
 
-                var serialNumber = "F2EA2B0CDFF";
+                /*var serialNumber = "F2EA2B0CDFF";
                 //var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data WHERE \"serialNumber\" = @SerialNumber";
                 var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data";
 
@@ -42,7 +49,7 @@
                         @cart_id = serialNumber
                     },
                     dbName: "qr_codes"
-                ).Result;
+                ).Result;*/
             /*
              *         public int Rank { get; set; }
         public string ZoneSequence { get; set; }
