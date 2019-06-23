@@ -41,15 +41,16 @@ namespace its40api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            string ConnectionString = "http://192.168.101.33:8086";
-            services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionString));
-            services.AddScoped<IDataAccess<ZonePerformance>, ZonePerformanceDataAccess>((cs) => new ZonePerformanceDataAccess(ConnectionString));
-            services.AddScoped<IDataAccess<Cart>, CartDataAccess>((cs) => new CartDataAccess(ConnectionString));
-            services.AddScoped<IDataAccess<CartPath>, CartPathDataAccess>((cs) => new CartPathDataAccess(ConnectionString));
-            services.AddScoped<IDataAccess<Receipt>, ReceiptDataAccess>((cs) => new ReceiptDataAccess(ConnectionString));
+            string ConnectionStringInflux = "https://192.168.43.246:8088";
+            string ConnectionStringMongo = "mongodb+srv://itsadmin:_its_40_admin@its40-umlny.mongodb.net/test?retryWrites=true&w=majority";
+            services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionStringInflux));
+            services.AddScoped<IDataAccess<ZonePerformance>, ZonePerformanceDataAccess>((cs) => new ZonePerformanceDataAccess(ConnectionStringInflux));
+            services.AddScoped<IDataAccess<Cart>, CartDataAccess>((cs) => new CartDataAccess(ConnectionStringInflux));
+            services.AddScoped<IDataAccess<CartPath>, CartPathDataAccess>((cs) => new CartPathDataAccess(ConnectionStringInflux));
+            services.AddScoped<IDataAccess<Receipt>, ReceiptDataAccess>((cs) => new ReceiptDataAccess(ConnectionStringInflux));
 
-            ConnectionString = "mongodb+srv://itsadmin:_its_40_admin@its40-umlny.mongodb.net/test?retryWrites=true&w=majority";
-            //services.AddScoped<IDataAccess<Cart>, MongoDataAccess>((cs) => new MongoDataAccess(ConnectionString));
+
+            //services.AddScoped<IDataAccess<Cart>, MongoDataAccess>((cs) => new MongoDataAccess(ConnectionStringMongo));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,11 +10,11 @@
 
     public class CartDataAccess : IDataAccess<Cart> 
     {
-        //IInfluxDbClientConfiguration a; 
-        //InfluxDbClient influxDbClient;
+        IInfluxDbClientConfiguration a; 
+        InfluxDbClient influxDbClient;
         public CartDataAccess(string host)
         {
-            //influxDbClient = new InfluxDbClient(a);
+            influxDbClient = new InfluxDbClient(host, "", "", InfluxDbVersion.v_1_3);
         }
 
         public List<Cart> GetList(string whereClause, object filters = null)
@@ -31,18 +31,18 @@
             //}
 
 
-            //var serialNumber = "F2EA2B0CDFF";
-            ////var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data WHERE \"serialNumber\" = @SerialNumber";
-            //var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data";
+            var serialNumber = "F2EA2B0CDFF";
+            //var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data WHERE \"serialNumber\" = @SerialNumber";
+            var queryTemplate = "SELECT cart_id, zone_id, time FROM qr_codes.autogen.cart_data";
 
-            //var response = influxDbClient.Client.QueryAsync(
-            //    queryTemplate: queryTemplate,
-            //    parameters: new
-            //    {
-            //        @cart_id = serialNumber
-            //    },
-            //    dbName: "qr_codes"
-            //).Result;
+            var response = influxDbClient.Client.QueryAsync(
+                queryTemplate: queryTemplate,
+                parameters: new
+                {
+                    @cart_id = serialNumber
+                },
+                dbName: "qr_codes"
+            ).Result;
             /*
     public class Cart
     {
