@@ -41,7 +41,7 @@ namespace its40api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            string ConnectionStringInflux = "https://192.168.43.246:8088";
+            string ConnectionStringInflux = "http://localhost:8086";
             string ConnectionStringMongo = "mongodb+srv://itsadmin:_its_40_admin@its40-umlny.mongodb.net/test?retryWrites=true&w=majority";
             services.AddScoped<IDataAccess<Zone>, ZoneDataAccess>((cs) => new ZoneDataAccess(ConnectionStringInflux));
             services.AddScoped<IDataAccess<ZonePerformance>, ZonePerformanceDataAccess>((cs) => new ZonePerformanceDataAccess(ConnectionStringInflux));

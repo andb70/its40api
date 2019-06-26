@@ -31,7 +31,7 @@
         public static ZonePerformance GetZonePerformance(int zoneId)
         {
             int numCarts = rand.Next(20, 60);
-            decimal avgSpending= (decimal)rand.Next(3000, 8000) / 100;
+            decimal totalSpending= (decimal)rand.Next(1000, 6000) / 100;
             decimal s = rand.Next(10, 300);
             int m = (int)Math.Floor(s / 60M);
             s = s - m * 60;
@@ -39,8 +39,8 @@
             {
                 PreviousZoneId = rand.Next(1, 14),
                 NumCarts = numCarts,
-                AvgSpending= avgSpending,
-                TotalSpending = avgSpending* numCarts,
+                AvgSpending= totalSpending /numCarts,
+                TotalSpending = totalSpending ,
                 Conversion = (decimal)rand.Next(3000, 8000) / 100,
                 AvgStayTime = new TimeSpan(0, m, (int)s),
                 TimeStamp = DateTime.Now

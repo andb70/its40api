@@ -3,9 +3,6 @@
     using System.Collections.Generic;
     using Dapper;
     using System.Data.SqlClient;
-    using InfluxData.Net.InfluxDb;
-    using InfluxData.Net.Common.Enums;
-    using InfluxData.Net.Common.Infrastructure;
     using its40api.Models;
 
     public class ZoneDataAccess : IDataAccess<Zone> 
@@ -66,7 +63,7 @@
                     , new Zone{Name="e", ZoneId = 11}
                     , new Zone{Name="Servizio Formaggi 2", ZoneId = 12}
                     , new Zone{Name="BANCO CARNI", ZoneId = 13}
-                    , new Zone{Name="Scaffale1", ZoneId = 14}
+                    , new Zone{Name="Scaffale 1", ZoneId = 14}
                     , new Zone{Name="Prodotti da forno", ZoneId = 15}
                     , new Zone{Name="Promo", ZoneId = 16}
                     , new Zone{Name="Servizio carni 2", ZoneId = 17}

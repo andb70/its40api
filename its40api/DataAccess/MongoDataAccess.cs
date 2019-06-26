@@ -3,9 +3,6 @@
     using System.Collections.Generic;
     using Dapper;
     using System.Data.SqlClient;
-    using InfluxData.Net.InfluxDb;
-    using InfluxData.Net.Common.Enums;
-    using InfluxData.Net.Common.Infrastructure;
     using its40api.Models;
     using MongoDB.Bson;
     using MongoDB.Driver;
